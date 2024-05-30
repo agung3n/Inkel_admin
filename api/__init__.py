@@ -5,12 +5,12 @@ import requests
 import json
 import pandas as pd
 
-basedir = pathlib.Path(__file__).parent.resolve()
-
 
 def create_app(test_config=None):
     
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__)
+    
+    basedir = pathlib.Path(__file__).parent.resolve()
     
     if test_config is None:
         # load the instance config, if it exists, when not testing
