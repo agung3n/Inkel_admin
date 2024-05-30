@@ -1,8 +1,11 @@
 import os
+import pathlib
 from flask import Flask, render_template, jsonify, make_response
 import requests
 import json
 import pandas as pd
+
+basedir = pathlib.Path(__file__).parent.resolve()
 
 
 def create_app(test_config=None):
