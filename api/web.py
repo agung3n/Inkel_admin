@@ -5,9 +5,12 @@ import json
 import pandas as pd
 
 basedir = pathlib.Path(__file__).parent.resolve()
-app = Flask(__name__)
 
-def create_app():
+
+def create_app(test_config=None):
+    
+    app = Flask(__name__, instance_relative_config=True)
+    
     @app.route('/')
     def index():
         return render_template("index.html")
