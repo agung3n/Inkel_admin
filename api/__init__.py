@@ -1,5 +1,4 @@
 import os
-import pathlib
 from flask import Flask, render_template, jsonify, make_response
 import requests
 import json
@@ -8,9 +7,7 @@ import pandas as pd
 
 def create_app(test_config=None):
     
-    app = Flask(__name__)
-    
-    basedir = pathlib.Path(__file__).parent.resolve()
+    app = Flask(__name__, instance_relative_config=True)
     
     if test_config is None:
         # load the instance config, if it exists, when not testing

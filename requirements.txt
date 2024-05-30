@@ -1,4 +1,3 @@
-pathlib
 Flask 
 requests
 pandas
