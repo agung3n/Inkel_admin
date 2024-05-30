@@ -1,0 +1,938 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            
+        </div>
+
+        <!-- Content Row -->
+        
+
+        <!-- Content Row -->
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Suhu Kelompok 1</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Suhu max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_max_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_min_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_mean_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+        
+                    
+                </div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Kelembaban Kelompok 1</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart2"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Kelembaban max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_max_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_min_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_mean_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Data Terakhir</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="last_data_kel1"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                                       
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Suhu Kelompok 2</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart3"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Suhu max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_max_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_min_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_mean_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+        
+                    
+                </div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Kelembaban Kelompok 2</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart4"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Kelembaban max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_max_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_min_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_mean_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Data Terakhir</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="last_data_kel2"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+        
+                    
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Suhu Kelompok 3</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart5"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Suhu max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_max_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_min_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Suhu Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="suhu_mean_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+        
+                    
+                </div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Kelembaban Kelompok 3</h6>
+                        
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="line-chart6"  width="auto" height="110px"> 
+                            </canvas> 
+                            <!--- <div id="chartContainersuhu"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Kelembaban max</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_max_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Min</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_min_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kelembaban Rata-rata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="humid_mean_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-6 mb-4">
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            Data Terakhir</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="last_data_kel3"></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+        
+                    
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+        <!-- Content Row -->
+        
+
+    </div>
+    <!-- /.container-fluid -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"> </script>
+    <script src= "https://momentjs.com/downloads/moment.js"> </script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"> </script>
+
+    <script> 
+        
+        var json_obj = JSON.parse(Get("{{ url_for('data_suhu') }}"));
+        var json_obj_data = JSON.parse(json_obj.data_all1);
+        var json_obj_data2 = JSON.parse(json_obj.data_all2);
+        var json_obj_data3 = JSON.parse(json_obj.data_all3);
+        
+        //console.log(json_obj);
+        //console.log(json_obj_data); 
+
+        document.getElementById("suhu_max_kel1").innerHTML = json_obj.data_suhu_max_kel1;
+        document.getElementById("suhu_min_kel1").innerHTML = json_obj.data_suhu_min_kel1;
+        document.getElementById("suhu_mean_kel1").innerHTML = json_obj.data_suhu_mean_kel1;
+        
+        document.getElementById("humid_max_kel1").innerHTML = json_obj.data_humid_max_kel1;
+        document.getElementById("humid_min_kel1").innerHTML = json_obj.data_humid_min_kel1;
+        document.getElementById("humid_mean_kel1").innerHTML = json_obj.data_humid_mean_kel1;
+
+        document.getElementById("last_data_kel1").innerHTML = json_obj.data_last_kel1;
+
+        document.getElementById("suhu_max_kel2").innerHTML = json_obj.data_suhu_max_kel2;
+        document.getElementById("suhu_min_kel2").innerHTML = json_obj.data_suhu_min_kel2;
+        document.getElementById("suhu_mean_kel2").innerHTML = json_obj.data_suhu_mean_kel2;
+        
+        document.getElementById("humid_max_kel2").innerHTML = json_obj.data_humid_max_kel2;
+        document.getElementById("humid_min_kel2").innerHTML = json_obj.data_humid_min_kel2;
+        document.getElementById("humid_mean_kel2").innerHTML = json_obj.data_humid_mean_kel2;
+
+        document.getElementById("last_data_kel2").innerHTML = json_obj.data_last_kel2;
+
+        document.getElementById("suhu_max_kel3").innerHTML = json_obj.data_suhu_max_kel3;
+        document.getElementById("suhu_min_kel3").innerHTML = json_obj.data_suhu_min_kel3;
+        document.getElementById("suhu_mean_kel3").innerHTML = json_obj.data_suhu_mean_kel3;
+        
+        document.getElementById("humid_max_kel3").innerHTML = json_obj.data_humid_max_kel3;
+        document.getElementById("humid_min_kel3").innerHTML = json_obj.data_humid_min_kel3;
+        document.getElementById("humid_mean_kel3").innerHTML = json_obj.data_humid_mean_kel3;
+
+        document.getElementById("last_data_kel3").innerHTML = json_obj.data_last_kel3;
+        
+
+        labels_suhu = []; 
+        values_suhu = [];
+        labels_humid = []; 
+        values_humid = [];
+
+        labels_suhu2 = []; 
+        values_suhu2 = [];
+        labels_humid2 = []; 
+        values_humid2 = [];
+
+        labels_suhu3 = []; 
+        values_suhu3 = [];
+        labels_humid3 = []; 
+        values_humid3 = [];
+        getData(); 
+
+        async function getData() { 
+
+            length = json_obj_data.length; 
+            //console.log(length);
+            //console.log(json_obj_data); 
+            
+            for (i = 0; i < length; i++) { 
+                labels_suhu.push(json_obj_data[i].time_stamp); 
+                values_suhu.push(json_obj_data[i].suhu); 
+                labels_humid.push(json_obj_data[i].time_stamp); 
+                values_humid.push(json_obj_data[i].humid); 
+            }
+            
+            length2 = json_obj_data2.length; 
+            //console.log(length2);
+            //console.log(json_obj_data2); 
+            
+            for (i = 0; i < length2; i++) { 
+                labels_suhu2.push(json_obj_data2[i].time_stamp); 
+                values_suhu2.push(json_obj_data2[i].suhu); 
+                labels_humid2.push(json_obj_data2[i].time_stamp); 
+                values_humid2.push(json_obj_data2[i].humid); 
+            } 
+
+            length3 = json_obj_data3.length; 
+            //console.log(length3);
+            //console.log(json_obj_data3); 
+            
+            for (i = 0; i < length3; i++) { 
+                labels_suhu3.push(json_obj_data3[i].time_stamp); 
+                values_suhu3.push(json_obj_data3[i].suhu); 
+                labels_humid3.push(json_obj_data3[i].time_stamp); 
+                values_humid3.push(json_obj_data3[i].humid); 
+            }
+           
+    
+        }
+        
+        new Chart(document.getElementById("line-chart"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_suhu, 
+                datasets: [ 
+                    { 
+                        label: "Suhu (degreeCelcius)", 
+                        backgroundColor: '#ffd700',
+                        data: values_suhu 
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Suhu Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        }); 
+
+        new Chart(document.getElementById("line-chart2"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_humid, 
+                datasets: [ 
+                    { 
+                        label: "%", 
+                        backgroundColor: '#ffd700',
+                        data: values_humid
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Humiditas Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        });
+        
+        new Chart(document.getElementById("line-chart3"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_suhu2, 
+                datasets: [ 
+                    { 
+                        label: "Suhu (degreeCelcius)", 
+                        backgroundColor: '#ffd700',
+                        data: values_suhu2 
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Suhu Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        });
+
+        new Chart(document.getElementById("line-chart4"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_humid2, 
+                datasets: [ 
+                    { 
+                        label: "%", 
+                        backgroundColor: '#ffd700',
+                        data: values_humid2
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Humiditas Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        });
+
+        new Chart(document.getElementById("line-chart5"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_suhu3, 
+                datasets: [ 
+                    { 
+                        label: "Suhu (degreeCelcius)", 
+                        backgroundColor: '#ffd700',
+                        data: values_suhu3 
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Suhu Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        });
+
+        new Chart(document.getElementById("line-chart6"), { 
+            type: 'line', 
+            data: { 
+                labels: labels_humid3, 
+                datasets: [ 
+                    { 
+                        label: "%", 
+                        backgroundColor: '#ffd700',
+                        data: values_humid3
+                    } 
+                ] 
+            }, 
+            options: { 
+                legend: { display: false }, 
+                title: { 
+                    display: true, 
+                    text: 'Humiditas Tanah' 
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',        
+                        time: {
+                          
+                          displayFormats: {
+                            minute: 'dd HH:mm'
+                          },
+                          tooltipFormat: 'Y-MM-DD HH:mm'
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Timestamp'
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                      }],
+                  }, 
+            } 
+        });
+
+        function Get(yourUrl){
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET",yourUrl,false);
+            Httpreq.send(null);
+            return Httpreq.responseText;          
+        }
+  
+    </script> 
+
+{% endblock %}
